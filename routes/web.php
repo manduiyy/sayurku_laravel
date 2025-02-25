@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductManagementController;
+use App\Http\Controllers\NavigationController;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/about', [PageController::class, 'about']);
@@ -32,4 +33,12 @@ Route::post('/product-management/store', [ProductManagementController::class, 's
 Route::get('/product-management/edit/{id}', [ProductManagementController::class, 'edit']);
 Route::post('/product-management/update', [ProductManagementController::class, 'update']);
 Route::get('/product-management/delete/{id}', [ProductManagementController::class, 'destroy']);
+
+//Navigation Management
+Route::get('/navigation-management', [NavigationController::class, 'index']);
+Route::get('/navigation-management/create', [NavigationController::class, 'create']);
+Route::post('/navigation-management/store', [NavigationController::class, 'store']);
+Route::get('/navigation-management/edit/{id}', [NavigationController::class, 'edit']);
+Route::post('/navigation-management/update', [NavigationController::class, 'update']);
+Route::get('/navigation-management/delete/{id}', [NavigationController::class, 'destroy']);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Navigation;
 
 class PageController extends Controller
 {
@@ -12,6 +13,7 @@ class PageController extends Controller
         return view('pages.main.home',
             [
                 'current_page' => 'home',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
                 'products' => Product::all(),
                 'javascript_file' => 'main/home.js'
             ]

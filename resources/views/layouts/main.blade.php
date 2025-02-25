@@ -38,21 +38,15 @@
              
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Beranda</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Tentang Kami</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Produk Kami</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Pesan Sayuran</a>
-                  </li>
+                  
+                @if ($navigations)
+                  @foreach ($navigations as $navigation)
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="">{{ $navigation->name }}</a>
+                    </li>
+                  @endforeach
+                @endif
+                  
 
                   @if(session('isLoggedIn'))
                     <li class="nav-item dropdown">
