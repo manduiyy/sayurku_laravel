@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function index(){
         return view('pages.admin.login',
       [
-                'current_page' => 'Login',
+                'current_page' => 'login',
                 'javascript_file' => 'admin/login.js'
             ]
         );
@@ -45,6 +45,8 @@ class AuthController extends Controller
 
     public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/login');
     }
 }
